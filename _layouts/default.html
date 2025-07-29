@@ -30,12 +30,12 @@
 
   </footer>
 
-  <script>
+<script>
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("contact-form");
     if (!form) return;
 
-    form.addEventListener("Send Message", function () {
+    form.addEventListener("submit", function (e) {
       const orderNumber = document.getElementById("order_number")?.value;
 
       if (orderNumber && orderNumber.trim() !== "") {
@@ -44,6 +44,10 @@
           event: "contact_form_submission",
           order_number: orderNumber.trim()
         });
+
+        // ⏳ Optional: Give GTM time to process before the page reloads
+        e.preventDefault();
+        setTimeout(() => form.submit(), 500);
       }
     });
   });
