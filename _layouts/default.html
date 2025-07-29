@@ -29,29 +29,6 @@
   <footer>
 
   </footer>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("contact-form");
-    if (!form) return;
-
-    form.addEventListener("submit", function (e) {
-      const orderNumber = document.getElementById("order_number")?.value;
-
-      if (orderNumber && orderNumber.trim() !== "") {
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          event: "contact_form_submission",
-          order_number: orderNumber.trim()
-        });
-
-        // ⏳ Optional: Give GTM time to process before the page reloads
-        e.preventDefault();
-        setTimeout(() => form.submit(), 500);
-      }
-    });
-  });
-</script>
   
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
